@@ -20,20 +20,16 @@ public class Player : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-        // Reset MoveDelta
         moveDelta = new Vector3(x,y,0);
 
-        // Swap sprite direction, whether you're going right or left
         if (moveDelta.x > 0)
             transform.localScale = Vector3.one;
         else if (moveDelta.x < 0)
             transform.localScale = new Vector3(-1, 1, 1);
 
-        // Make sure we can move in this direction, by casting a box there first, if the box returns null, we're free to move
         hit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(0, moveDelta.y), Mathf.Abs(moveDelta.y * Time.deltaTime), LayerMask.GetMask("Heroes", "Blocking"));
         if (hit.collider == null)
         {
-            // Make this thing move!
             transform.Translate(0, moveDelta.y * Time.deltaTime, 0);
         }
 
@@ -41,7 +37,6 @@ public class Player : MonoBehaviour
         hit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(moveDelta.x, 0), Mathf.Abs(moveDelta.x * Time.deltaTime), LayerMask.GetMask("Heroes", "Blocking"));
         if (hit.collider == null)
         {
-            // Make this thing move!
             transform.Translate(moveDelta.x * Time.deltaTime, 0, 0);
         }
         

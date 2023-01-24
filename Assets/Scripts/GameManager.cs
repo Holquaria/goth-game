@@ -12,22 +12,18 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += LoadState;
     }
     
-    // Resources
 
     public List<Sprite> playerSprites;
     public List<Sprite> weaponSprites;
     public List<int> weaponPrices;
     public List<int> xpTable;
 
-    // References
     public Player player;
-    // public weapon weapon...
 
-    // Logic
     public int pesos;
     public int experience;
 
-    // Save State
+
     public void SaveState()
     {
         Debug.Log("SaveState");

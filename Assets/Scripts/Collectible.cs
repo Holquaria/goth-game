@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Collectible : Collidable
 {
-    // Logic
     protected bool collected;
 
     protected override void OnCollide(Collider2D coll)

@@ -15,7 +15,6 @@ public class Collidable : MonoBehaviour
 
     protected virtual void Update()
     {
-        //Collision work
         boxCollider.OverlapCollider(filter, hits);
         for (int i = 0; i < hits.Length; i++)
         {
@@ -24,7 +23,6 @@ public class Collidable : MonoBehaviour
 
             OnCollide(hits[i]);
             
-            // The array is not cleaned up, so we do it ourselves
             hits[i] = null;
         }
     }
