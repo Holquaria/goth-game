@@ -12,7 +12,6 @@ public class CameraMotor : MonoBehaviour
     {
         Vector3 delta = Vector3.zero;
 
-        // This is to check if we're inside the bounds on the X axis
         float deltaX = lookAt.position.x - transform.position.x;
         if (deltaX > boundX || deltaX < -boundX)
         {
@@ -25,8 +24,6 @@ public class CameraMotor : MonoBehaviour
                 delta.x = deltaX + boundX;
             }
         }
-
-        // This is to check if we're inside the bounds on the Y axis
         float deltaY = lookAt.position.y - transform.position.y;
         if (deltaY > boundY || deltaY < -boundY)
         {
